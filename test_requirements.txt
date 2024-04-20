@@ -1,0 +1,5 @@
+pytest
+ipynb
+pandas
+numpy
+matplotlib
