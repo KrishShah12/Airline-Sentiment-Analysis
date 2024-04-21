@@ -3,5 +3,5 @@ ipynb
 pandas
 numpy
 matplotlib
-BeautifulSoup
-requests
+BeautifulSoup==4.12.2
+requests==2.31.0
