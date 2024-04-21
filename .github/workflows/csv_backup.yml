@@ -1,10 +1,13 @@
 name: Backup data in csv as a github artifact
 
 on:
-  schedule:
-    # This example triggers the workflow every day at 5:30 and 17:30 UTC:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '30 5,17 * * *'
+  # schedule:
+  #   # This example triggers the workflow every day at 5:30 and 17:30 UTC:
+  #   # * is a special character in YAML so you have to quote this string
+  #   - cron:  '30 5,17 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -35,7 +38,15 @@ jobs:
           key: ${{ runner.tool_cache }}/Python/3.10.13/${{ runner.arch }}-${{ hashFiles('requirements.txt') }}
         
       - name: Export to csv
-        run: python df_to_csv.py          
+        run: python df_to_csv.py  
+        
+      - name: Commit data files
+        run: |
+          git config --global user.name 'manan145'
+          git config --global user.email 'mananjagani145@gmail.com'
+          git add web_scraped_data.csv
+          git commit -m "saving new data"
+          git push
 
 
       - name: Upload CSV as artifact
