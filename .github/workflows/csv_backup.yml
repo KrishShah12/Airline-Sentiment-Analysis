@@ -1,10 +1,10 @@
 name: Backup data in csv as a github artifact
 
 on:
-  # schedule:
-  #   # This example triggers the workflow every day at 5:30 and 17:30 UTC:
-  #   # * is a special character in YAML so you have to quote this string
-  #   - cron:  '30 5,17 * * *'
+  schedule:
+    # This example triggers the workflow every day at 5:30 UTC:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 5 * * *'
   workflow_dispatch:
 permissions:
   contents: write
