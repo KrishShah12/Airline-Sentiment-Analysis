@@ -3,3 +3,5 @@ ipynb
 pandas
 numpy
 matplotlib
+BeautifulSoup
+requests
