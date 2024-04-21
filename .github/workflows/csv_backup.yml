@@ -30,6 +30,9 @@ jobs:
         with:
           path: ${{ runner.tool_cache }}/Python/3.10.13 # e.g /opt/hostedtoolcache/Python/3.11.6
           key: ${{ runner.tool_cache }}/Python/3.10.13/${{ runner.arch }}-${{ hashFiles('requirements.txt') }}
+        
+      - name: Export to csv
+        run: python df_to_csv.py          
 
 
       - name: Upload CSV as artifact
