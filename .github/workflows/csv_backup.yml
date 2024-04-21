@@ -41,6 +41,3 @@ jobs:
           name: Backup_data
           path: |
             web_scraped_data.csv
-            enriched_data.csv
-            cleaned_data.csv
-            Final_csv.csv
