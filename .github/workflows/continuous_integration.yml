@@ -48,6 +48,15 @@ jobs:
       #     git commit -m "saving new data"
       #     git push
 
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Backup of data files
         uses: actions/upload-artifact@v4
@@ -57,3 +66,7 @@ jobs:
             cleaned_data.xlsx
             cleaned_data.json
             cleaned_data.db
+            web_scraped_data.csv
+            enriched_data.csv
+            cleaned_data.csv
+            Final_csv.csv
