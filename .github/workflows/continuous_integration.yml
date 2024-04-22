@@ -1,4 +1,4 @@
-name: Backup data in csv as a github artifact
+name: Continuous Integration
 
 on:
   schedule:
