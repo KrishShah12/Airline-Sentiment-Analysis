@@ -1,2 +1,0 @@
-print('Divya')
-print('Noob')
