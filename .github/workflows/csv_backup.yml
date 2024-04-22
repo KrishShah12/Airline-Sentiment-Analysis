@@ -40,18 +40,20 @@ jobs:
       - name: Export to csv
         run: python df_to_csv.py  
         
-      - name: Commit data files
-        run: |
-          git config --global user.name 'manan145'
-          git config --global user.email 'mananjagani145@gmail.com'
-          git add web_scraped_data.csv
-          git commit -m "saving new data"
-          git push
+      # - name: Commit data files
+      #   run: |
+      #     git config --global user.name 'manan145'
+      #     git config --global user.email 'mananjagani145@gmail.com'
+      #     git add web_scraped_data.csv
+      #     git commit -m "saving new data"
+      #     git push
 
 
-      - name: Upload CSV as artifact
+      - name: Backup of data files
         uses: actions/upload-artifact@v4
         with:
           name: Backup_data
           path: |
-            web_scraped_data.csv
+            cleaned_data.xlsx
+            cleaned_data.json
+            cleaned_data.db
