@@ -22,12 +22,12 @@ jobs:
         uses: actions/cache/restore@v3
         id: cache
         with:
-          path: ${{ runner.tool_cache }}/Python/3.10.13 # e.g /opt/hostedtoolcache/Python/3.11.6
-          key: ${{ runner.tool_cache }}/Python/3.10.13/${{ runner.arch }}-${{ hashFiles('requirements.txt') }}
+          path: ${{ runner.tool_cache }}/Python/3.11.5 # e.g /opt/hostedtoolcache/Python/3.11.6
+          key: ${{ runner.tool_cache }}/Python/3.11.5/${{ runner.arch }}-${{ hashFiles('requirements.txt') }}
       - name: Set up Python env
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10.13'
+          python-version: '3.11.5'
       - name: Install pip dependencies
         shell: bash
         run: pip install -r requirements.txt
@@ -46,25 +46,25 @@ jobs:
       #     git commit -m "saving new data"
       #     git push
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      # - name: Set up Quarto
+      #   uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Render and Publish
+      #   uses: quarto-dev/quarto-actions/publish@v2
+      #   with:
+      #     target: gh-pages
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Backup of data files
-        uses: actions/upload-artifact@v4
-        with:
-          name: Backup_data
-          path: |
-            cleaned_data.xlsx
-            cleaned_data.json
-            cleaned_data.db
-            web_scraped_data.csv
-            enriched_data.csv
-            cleaned_data.csv
-            Final_csv.csv
+      # - name: Backup of data files
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Backup_data
+      #     path: |
+      #       cleaned_data.xlsx
+      #       cleaned_data.json
+      #       cleaned_data.db
+      #       web_scraped_data.csv
+      #       enriched_data.csv
+      #       cleaned_data.csv
+      #       Final_csv.csv
