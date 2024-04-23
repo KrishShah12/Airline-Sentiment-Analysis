@@ -34,8 +34,8 @@ jobs:
       - uses: actions/cache/save@v3
         if: steps.cache.outputs.cache-hit != 'true'
         with:
-          path: ${{ runner.tool_cache }}/Python/3.10.13 # e.g /opt/hostedtoolcache/Python/3.11.6
-          key: ${{ runner.tool_cache }}/Python/3.10.13/${{ runner.arch }}-${{ hashFiles('requirements.txt') }}
+          path: ${{ runner.tool_cache }}/Python/3.11.5 # e.g /opt/hostedtoolcache/Python/3.11.6
+          key: ${{ runner.tool_cache }}/Python/3.11.5/${{ runner.arch }}-${{ hashFiles('requirements.txt') }}
         
         
       # - name: Commit data files
